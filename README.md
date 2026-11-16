@@ -1,35 +1,21 @@
 # Task Manager · AltF4 Masters
 
-Tablica zespołu z trzema statusami: Do zrobienia, W trakcie i Zakończone. Zadania mają tytuł, opis i termin. Można je dodawać, edytować, usuwać i filtrować według statusu. Frontend i API działają w Next.js z TypeScriptem, interfejs używa Tailwind CSS, a zadania są przechowywane w Neon PostgreSQL.
+Responsywna aplikacja zespołowa do zarządzania zadaniami. Umożliwia ich dodawanie, edycję, usuwanie i filtrowanie. Każde zadanie ma tytuł, opis, termin oraz jeden z trzech statusów: **Do zrobienia**, **W trakcie** lub **Zakończone**. Interfejs ma jasny i ciemny motyw.
 
-## Baza Neon
-
-1. W [Neon Console](https://console.neon.tech/) utwórz projekt.
-2. W **SQL Editor** wybierz jego bazę, wklej zawartość `schema.sql` i kliknij **Run**.
-3. W panelu projektu wybierz **Connect** i skopiuj ciąg połączenia PostgreSQL dla tej samej bazy. Użyj go jako wartości `DATABASE_URL`. Nie dodawaj go do repozytorium.
-
-## GitHub i Vercel bez terminala
-
-1. Rozpakuj ZIP. Utwórz repozytorium na [GitHubie](https://github.com/new). W GitHub Desktop wybierz **File → Clone repository** i wybierz swoje repozytorium. Skopiuj do niego **zawartość** rozpakowanego folderu `task-manager`, łącznie z `.gitignore` i `.env.example`. W GitHub Desktop zrób **Commit** i **Push origin**.
-2. W [Vercel](https://vercel.com/new) wybierz **Add New → Project** z panelu lub od razu **Import** przy repozytorium. Jeśli repozytorium się nie wyświetla, połącz konto GitHub i nadaj integracji dostęp do repozytorium.
-3. Ustaw preset **Next.js**. W **Environment Variables** dodaj `DATABASE_URL` z Neon do środowiska **Production** i kliknij **Deploy**.
-4. Otwórz adres wdrożenia. Dodaj zadanie testowe, odśwież stronę, zmień status, edytuj zadanie i je usuń. Sprawdź też widok na telefonie. Do oddania wyślij link wdrożenia i link do repozytorium. Jeśli repozytorium jest prywatne, nadaj prowadzącemu dostęp.
-5. To wspólna tablica demonstracyjna bez logowania w aplikacji. Każdy użytkownik z dostępem do wdrożenia może edytować zadania.
+**Technologie:** Next.js, TypeScript, Tailwind CSS i Neon PostgreSQL.
 
 ## Uruchomienie lokalne
 
-Wymagany Node.js 24. W folderze z `package.json` utwórz plik `.env.local` według `.env.example` i uzupełnij `DATABASE_URL`.
+1. Sklonuj lub pobierz repozytorium. Zainstaluj **Node.js 24 LTS**.
+2. Utwórz bazę w Neon i uruchom zawartość pliku `schema.sql` w **SQL Editor**.
+3. W folderze z `package.json` utwórz plik `.env.local`. Wpisz `DATABASE_URL=`, a po znaku `=` wklej adres połączenia z bazy Neon. Zachowaj ten plik lokalnie.
+4. Otwórz terminal w folderze projektu i uruchom:
 
-```sh
-npm ci
-npm run dev
-```
+   ```bash
+   npm ci
+   npm run dev
+   ```
 
-Otwórz [http://localhost:3000](http://localhost:3000). Kompilację produkcyjną sprawdzisz przez `npm run build`.
+   Jeśli Windows PowerShell blokuje `npm.ps1`, użyj `npm.cmd ci` i `npm.cmd run dev`.
 
-## Kod
-
-- `app/page.tsx` – tablica, formularz i filtrowanie.
-- `app/api/tasks/route.ts` – pobieranie, dodawanie, edycja i usuwanie zadań.
-- `lib/tasks.ts` – typy, statusy i walidacja.
-- `schema.sql` – tabela zadań.
+5. Otwórz adres z wiersza **Local** w terminalu, zwykle [http://localhost:3000](http://localhost:3000).
