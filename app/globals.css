@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+:root { color-scheme: dark; }
+body { background: #10131a; color: #ecedf3; font-family: Inter, system-ui, sans-serif; }
+button { cursor: pointer; }
+button:disabled, select:disabled { cursor: wait; opacity: .55; }
+:focus-visible { outline: 2px solid #c3b5ff; outline-offset: 3px; }
