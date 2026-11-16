@@ -151,7 +151,7 @@ export default function Home() {
         <form onSubmit={submit} className="space-y-4">
           <h2 id="form-title" className="text-xl font-semibold">{draft.id ? "Edytuj zadanie" : "Nowe zadanie"}</h2>
           <label className="block space-y-1 text-sm">Tytuł
-            <input className={field} required maxLength={120} value={draft.title} onChange={event => setDraft({ ...draft, title: event.target.value })} />
+            <input className={field} required maxLength={120} value  ={draft.title} onChange={event => setDraft({ ...draft, title: event.target.value })} />
           </label>
           <label className="block space-y-1 text-sm">Opis
             <textarea className={field} rows={4} maxLength={2000} value={draft.description} onChange={event => setDraft({ ...draft, description: event.target.value })} />
